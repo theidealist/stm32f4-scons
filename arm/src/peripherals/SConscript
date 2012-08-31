@@ -1,0 +1,6 @@
+Import('env')
+
+miscLibrary = env.StaticLibrary('peripherals',['misc.c'])
+
+env.Install('#lib/', miscLibrary)
+

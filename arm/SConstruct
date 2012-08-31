@@ -1,0 +1,48 @@
+
+import os
+
+env = Environment(ENV = os.environ)
+#env = Environment()
+
+def buildit( module ):
+    global env
+
+    if os.path.exists( 'SConstruct' ):
+        env.SConscript( module + '/SConscript',
+                            variant_dir=module + '/obj',
+                            duplicate=0 )
+    else:
+        env.SConscript( module + '/SConscript',
+                            variant_dir='../' + module + '/obj',
+                            duplicate=0 )
+    return
+
+
+def BuildModules( modules ):
+    for mm in modules:
+        buildit(mm)
+
+env.buildit = buildit
+env.BuildModules = BuildModules
+
+
+env['AR'] = 'arm-none-eabi-ar'
+env['AS'] = 'arm-none-eabi-as'
+env['CC'] = 'arm-none-eabi-gcc'
+env['CXX'] = 'arm-none-eabi-g++'
+env['RANLIB'] = 'arm-none-eabi-ranlib'
+
+
+env['CPPPATH'] = ['#src/cmsis/ST/STM32F4xx/Include',
+                  '#src/cmsis/Include']
+
+
+env.Append(INSTALL_LIBDIR = './lib')
+env.Append(INSTALL_BINDIR = './bin')
+env.Append(CCFLAGS = ['-O2', '-g'])
+env.Append(LIBPATH = ['#lib'])
+
+Export('env')
+
+BuildModules(['src'])
+
