@@ -33,8 +33,7 @@ env['CXX'] = 'arm-none-eabi-g++'
 env['RANLIB'] = 'arm-none-eabi-ranlib'
 
 
-env['CPPPATH'] = ['#src/cmsis/ST/STM32F4xx/Include',
-                  '#src/cmsis/Include']
+env['CPPPATH'] = ['#src/sys']
 
 
 env.Append(INSTALL_LIBDIR = './lib')
