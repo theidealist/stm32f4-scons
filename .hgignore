@@ -1,0 +1,8 @@
+syntax:glob
+bin/*
+obj/*
+lib/*
+
+.sconsign.dblite
+.cproject
+.project
