@@ -1,0 +1,23 @@
+Import('env')
+
+usb_device = env.StaticLibrary('usb_device',['usbd_audio_core.c',
+                                             'usbd_audio_out_if.c',
+                                             'usbd_cdc_core.c',
+                                             'usbd_cdc_if_template.c',
+                                             'usbd_core.c',
+                                             'usbd_dfu_core.c',
+                                             'usbd_dfu_mal.c',
+                                             'usbd_flash_if.c',
+                                             'usbd_hid_core.c',
+                                             'usbd_ioreq.c',
+                                             'usbd_mem_if_template.c',
+                                             'usbd_msc_bot.c',
+                                             'usbd_msc_core.c',
+                                             'usbd_msc_data.c',
+                                             'usbd_msc_scsi.c',
+                                             'usbd_otp_if.c',
+                                             'usbd_req.c',
+                                             'usbd_storage_template.c',])
+                                                
+
+env.Install('#lib/', usb_device)

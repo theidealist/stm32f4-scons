@@ -1,0 +1,6 @@
+Import('env')
+
+commonTables = env.StaticLibrary('commonTables',['arm_common_tables.c'])
+
+env.Install('#lib/',commonTables)
+

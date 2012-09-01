@@ -1,0 +1,7 @@
+Import('env')
+
+env.BuildModules([
+                    'usb_device',
+                    'usb_host',
+                    'usb_otg'
+                 ])

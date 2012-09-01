@@ -33,12 +33,15 @@ env['CXX'] = 'arm-none-eabi-g++'
 env['RANLIB'] = 'arm-none-eabi-ranlib'
 
 
-env['CPPPATH'] = ['#src/sys']
+env['CPPPATH'] = [
+                  '#src/sys'
+                 ]
 
+env['CPPDEFINES'] = ['ARM_MATH_CM4']
 
 env.Append(INSTALL_LIBDIR = './lib')
 env.Append(INSTALL_BINDIR = './bin')
-env.Append(CCFLAGS = ['-O2', '-g'])
+env.Append(CCFLAGS = ['-O2', '-g', '-mcpu=cortex-m4', '-mthumb'])
 env.Append(LIBPATH = ['#lib'])
 
 Export('env')
