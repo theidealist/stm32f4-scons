@@ -3,7 +3,8 @@ Import('env')
 env.BuildModules([
                     'peripherals',
                     #'usb',
-                    'dsp'
+                    'dsp',
+                    'applications'
                  ])
 
 

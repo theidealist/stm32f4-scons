@@ -26,15 +26,29 @@ env.buildit = buildit
 env.BuildModules = BuildModules
 
 
+def generate_arm(source, target, env, for_signature):
+    return '$OBJCOPY -O binary %s %s'%(source[0], target[0])
+
+env.Append(BUILDERS={
+    'Objcopy': Builder(
+               generator=generate_arm,
+               suffix='.hex',
+               src_suffix='.elf')})
+
+
 env['AR'] = 'arm-none-eabi-ar'
 env['AS'] = 'arm-none-eabi-as'
 env['CC'] = 'arm-none-eabi-gcc'
 env['CXX'] = 'arm-none-eabi-g++'
 env['RANLIB'] = 'arm-none-eabi-ranlib'
+env['OBJCOPY'] = 'arm-none-eabi-objcopy'
+
+env['PROGSUFFIX'] = '.elf'
 
 
 env['CPPPATH'] = [
-                  '#src/sys'
+                  '#src/sys',
+                  '#src/peripherals'
                  ]
 
 env['CPPDEFINES'] = ['ARM_MATH_CM4']

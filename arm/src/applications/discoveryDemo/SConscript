@@ -1,0 +1,48 @@
+Import('env')
+
+appEnv = env.Clone()
+
+appEnv.Append(CPPPATH = [
+    '#src/usb/usb_device/',
+    '#src/usb/usb_otg/',
+    '#src/applications/discoveryDemo/',
+    ])
+    
+appEnv.Append(CPPDEFINES = [
+    'USE_STDPERIPH_DRIVER',
+    'USE_USB_OTG_FS',
+])
+
+appEnv['LINKFLAGS'] = [
+    '-Tbuild/stm32_flash.ld',
+    ]
+
+discoveryDemo = appEnv.Program(
+    target = 'discoveryDemo',
+    source = [
+        'main.c',
+        'stm32f4_discovery.c',
+        'stm32f4_discovery_audio_codec.c',
+        'stm32f4_discovery_lis302dl.c',
+        'selftest.c',
+        'stm32f4xx_it.c',
+        'system_stm32f4xx.c',
+        'usb_bsp.c',
+        'usbd_desc.c',
+        'usbd_usr.c',
+        
+        '#src/usb/usb_device/usbd_core.c',
+        '#src/usb/usb_device/usbd_hid_core.c',
+        '#src/usb/usb_device/usbd_req.c',
+        '#src/usb/usb_device/usbd_ioreq.c',
+        '#src/usb/usb_otg/usb_dcd.c',
+        '#src/usb/usb_otg/usb_dcd_int.c',
+        '#src/usb/usb_otg/usb_core.c',
+        
+        '#src/sys/startup_stm32f4xx.s',
+        ],
+    LIBS = ['peripherals']
+    )
+    
+appEnv.Install('#bin/',appEnv.Objcopy(discoveryDemo))
+
