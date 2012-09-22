@@ -51,12 +51,24 @@ env['CPPPATH'] = [
                   '#src/peripherals'
                  ]
 
-env['CPPDEFINES'] = ['ARM_MATH_CM4']
-
 env.Append(INSTALL_LIBDIR = './lib')
 env.Append(INSTALL_BINDIR = './bin')
-env.Append(CCFLAGS = ['-O2', '-g', '-mcpu=cortex-m4', '-mthumb'])
+env.Append(CCFLAGS = ['-O2',
+                      #'-g',
+                      #'-Wall',
+                      '-mlittle-endian',
+                      '-mthumb',
+                      '-mcpu=cortex-m4',
+                      '-mthumb-interwork',
+                      '-mfloat-abi=soft',
+                      '-mfpu=fpv4-sp-d16',
+                      '-ffreestanding',
+                      '-nostdlib'])
+                      
 env.Append(LIBPATH = ['#lib'])
+
+#CFLAGS += -ffreestanding -nostdlib
+
 
 Export('env')
 
