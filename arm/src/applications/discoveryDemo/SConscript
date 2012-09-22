@@ -13,10 +13,6 @@ appEnv.Append(CPPDEFINES = [
     'USE_USB_OTG_FS',
 ])
 
-appEnv['LINKFLAGS'] = [
-    '-Tbuild/stm32_flash.ld',
-    ]
-
 discoveryDemo = appEnv.Program(
     target = 'discoveryDemo',
     source = [
