@@ -2,6 +2,7 @@ syntax:glob
 bin/*
 obj/*
 lib/*
+*.o
 
 .sconsign.dblite
 .cproject
