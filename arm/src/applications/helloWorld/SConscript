@@ -5,22 +5,6 @@ appEnv = env.Clone()
 appEnv.Append(CPPPATH = [
     '#src/applications/helloWorld/',
     ])
-    
-appEnv.Append(CPPDEFINES = [
-    #'USE_STDPERIPH_DRIVER'
-])
-
-appEnv['LINKFLAGS'] = [
-    '-Tbuild/stm32_flash.ld',
-    '-O2',
-    '-Wall',
-    '-mlittle-endian',
-    '-mthumb',
-    '-mcpu=cortex-m4',
-    '-mthumb-interwork',
-    '-mfloat-abi=soft',
-    '-mfpu=fpv4-sp-d16'
-    ]
 
 helloWorld = appEnv.Program(
     target = 'helloWorld',

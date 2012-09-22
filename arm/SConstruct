@@ -65,10 +65,15 @@ env.Append(CCFLAGS = ['-O2',
                       '-ffreestanding',
                       '-nostdlib'])
                       
+env.Append(LINKFLAGS = ['-Tbuild/stm32_flash.ld',
+                        '-mlittle-endian',
+                        '-mthumb',
+                        '-mcpu=cortex-m4',
+                        '-mthumb-interwork',
+                        '-mfloat-abi=soft',
+                        '-mfpu=fpv4-sp-d16'])
+                      
 env.Append(LIBPATH = ['#lib'])
-
-#CFLAGS += -ffreestanding -nostdlib
-
 
 Export('env')
 
