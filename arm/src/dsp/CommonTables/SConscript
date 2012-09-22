@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-commonTables = env.StaticLibrary('commonTables',['arm_common_tables.c'])
+commonTables = dspEnv.StaticLibrary('commonTables',['arm_common_tables.c'])
 
-env.Install('#lib/',commonTables)
+dspEnv.Install('#lib/',commonTables)
 

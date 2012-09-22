@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-fastMath = env.StaticLibrary('fastMath',[
+fastMath = dspEnv.StaticLibrary('fastMath',[
                                             'arm_cos_f32.c',
                                             'arm_cos_q15.c',
                                             'arm_cos_q31.c',
@@ -11,5 +11,5 @@ fastMath = env.StaticLibrary('fastMath',[
                                             'arm_sqrt_q31.c',
                                         ])
 
-env.Install('#lib/',fastMath)
+dspEnv.Install('#lib/',fastMath)
 

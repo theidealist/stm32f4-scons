@@ -1,6 +1,14 @@
 Import('env')
 
-env.BuildModules([
+dspEnv = env.Clone()
+
+dspEnv.Append(CPPDEFINES = [
+    'ARM_MATH_CM4'
+])
+
+Export('dspEnv')
+
+dspEnv.BuildModules([
                     'BasicMathFunctions',
                     'CommonTables',
                     'ComplexMathFunctions',

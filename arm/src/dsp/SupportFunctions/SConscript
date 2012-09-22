@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-support = env.StaticLibrary('support',[
+support = dspEnv.StaticLibrary('support',[
                                                 'arm_copy_f32.c',
                                                 'arm_copy_q15.c',
                                                 'arm_copy_q31.c',
@@ -23,5 +23,5 @@ support = env.StaticLibrary('support',[
                                                 'arm_q7_to_q31.c',
                                                ])
 
-env.Install('#lib/',support)
+dspEnv.Install('#lib/',support)
 

@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-controllerFunctions = env.StaticLibrary('controllerFunctions',[
+controllerFunctions = dspEnv.StaticLibrary('controllerFunctions',[
                                                                 'arm_pid_init_f32.c',
                                                                 'arm_pid_init_q15.c',
                                                                 'arm_pid_init_q31.c',
@@ -11,5 +11,5 @@ controllerFunctions = env.StaticLibrary('controllerFunctions',[
                                                                 'arm_sin_cos_q31.c',
                                                                ])
 
-env.Install('#lib/',controllerFunctions)
+dspEnv.Install('#lib/',controllerFunctions)
 

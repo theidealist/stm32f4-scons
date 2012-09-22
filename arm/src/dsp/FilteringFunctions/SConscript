@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-filtering = env.StaticLibrary('filtering',[
+filtering = dspEnv.StaticLibrary('filtering',[
                                             'arm_biquad_cascade_df1_32x64_init_q31.c',
                                             'arm_biquad_cascade_df1_32x64_q31.c',
                                             'arm_biquad_cascade_df1_f32.c',
@@ -89,5 +89,5 @@ filtering = env.StaticLibrary('filtering',[
                                             'arm_lms_q31.c',
                                            ])
 
-env.Install('#lib/',filtering)
+dspEnv.Install('#lib/',filtering)
 

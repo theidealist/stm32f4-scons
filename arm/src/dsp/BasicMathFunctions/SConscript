@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-basicMath = env.StaticLibrary('basicMath',[
+basicMath = dspEnv.StaticLibrary('basicMath',[
 											'arm_abs_f32.c',
 											'arm_abs_q15.c',
 											'arm_abs_q31.c',
@@ -38,5 +38,5 @@ basicMath = env.StaticLibrary('basicMath',[
 											'arm_sub_q7.c'
 									       ])
 
-env.Install('#lib/',basicMath)
+dspEnv.Install('#lib/',basicMath)
 

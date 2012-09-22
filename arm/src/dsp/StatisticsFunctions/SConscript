@@ -1,6 +1,6 @@
-Import('env')
+Import('dspEnv')
 
-statistics = env.StaticLibrary('statistics',[
+statistics = dspEnv.StaticLibrary('statistics',[
                                                 'arm_max_f32.c',
                                                 'arm_max_q15.c',
                                                 'arm_max_q31.c',
@@ -27,5 +27,5 @@ statistics = env.StaticLibrary('statistics',[
                                                 'arm_var_q15.c',
                                                 'arm_var_q31.c',
                                              ])
-env.Install('#lib/',statistics)
+dspEnv.Install('#lib/',statistics)
 
