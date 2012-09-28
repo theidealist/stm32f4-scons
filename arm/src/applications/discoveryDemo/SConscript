@@ -34,10 +34,8 @@ discoveryDemo = appEnv.Program(
         '#src/usb/usb_otg/usb_dcd.c',
         '#src/usb/usb_otg/usb_dcd_int.c',
         '#src/usb/usb_otg/usb_core.c',
-        
-        '#src/sys/startup_stm32f4xx.s',
         ],
-    LIBS = ['peripherals']
+    LIBS = ['peripherals', 'sysUtils']
     )
     
 appEnv.Install('#bin/',appEnv.Objcopy(discoveryDemo))

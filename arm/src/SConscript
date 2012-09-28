@@ -4,7 +4,8 @@ env.BuildModules([
                     'peripherals',
                     #'usb',
                     'dsp',
-                    'applications'
+                    'applications',
+                    'sys'
                  ])
 
 
