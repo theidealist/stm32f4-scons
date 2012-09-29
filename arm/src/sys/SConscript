@@ -2,6 +2,7 @@ Import('env')
 
 sysUtils = env.StaticLibrary('sysUtils',[
                                          'startup_stm32f4xx.s',
+                                         'system_stm32f4xx.c'
                                         ])
 
 env.Install('#lib/',sysUtils)

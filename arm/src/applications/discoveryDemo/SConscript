@@ -22,7 +22,6 @@ discoveryDemo = appEnv.Program(
         'stm32f4_discovery_lis302dl.c',
         'selftest.c',
         'stm32f4xx_it.c',
-        'system_stm32f4xx.c',
         'usb_bsp.c',
         'usbd_desc.c',
         'usbd_usr.c',
